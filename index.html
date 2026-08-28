@@ -48,6 +48,26 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
     }
+    .timer-banner {
+      background: #dc2626;
+      color: #ffffff;
+      text-align: center;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+    .timer-banner span {
+      background: #ffffff;
+      color: #dc2626;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 14px;
+    }
     .header {
       background: linear-gradient(135deg, #0d5c3a 0%, #063822 100%);
       padding: 15px;
@@ -181,6 +201,11 @@
 <body>
 
   <div class="container">
+    <!-- Countdown Timer Bar -->
+    <div class="timer-banner">
+      <i class="fa-solid fa-clock"></i> Special Discount Ends In: <span id="timer">02:00</span>
+    </div>
+
     <!-- Header Section -->
     <div class="header">
       <div class="brand-title">VEDIKACURE AYURVEDA</div>
@@ -212,7 +237,7 @@
           <textarea name="address" rows="2" placeholder="Makan no, Gali / Area, Landmark..." required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">
+        <button type="submit" class="submit-btn" id="subBtn">
           SUBMIT NOW
         </button>
       </form>
@@ -247,15 +272,50 @@
   </div>
 
   <script>
-    document.getElementById('vedikaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    // 2-Minute Timer Script
+    let timeInSeconds = 120;
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+      const minutes = Math.floor(timeInSeconds / 60);
+      const seconds = timeInSeconds % 60;
+      timerElement.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
       
+      if (timeInSeconds > 0) {
+        timeInSeconds--;
+      } else {
+        timeInSeconds = 120; // Auto-reset when hits 0
+      }
+    }
+    setInterval(updateTimer, 1000);
+
+    // Form Submission Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbywLbQtNfFoq3gwov3mhn90MCC731pmNPzwDgirMxTaYK5WEdLcwHen5H47fdq3cWvW/exec';
+    const form = document.getElementById('vedikaForm');
+    const btn = document.getElementById('subBtn');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      btn.innerText = 'SUBMITTING...';
+      btn.disabled = true;
+
       // Meta Pixel Lead Event Fire
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead');
       }
 
-      alert('Aapki details receive ho gayi hain! Vedikacure expert doctors aapko jaldi contact karenge.');
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          alert('Aapki details receive ho gayi hain! Vedikacure expert doctors aapko jaldi contact karenge.');
+          form.reset();
+          btn.innerText = 'SUBMIT NOW';
+          btn.disabled = false;
+        })
+        .catch(error => {
+          alert('Details submit karne me issue aaya, please firse try karein.');
+          btn.innerText = 'SUBMIT NOW';
+          btn.disabled = false;
+        });
     });
   </script>
 
