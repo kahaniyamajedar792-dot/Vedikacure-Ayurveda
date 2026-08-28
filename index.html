@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vedikacure Ayurveda - Kidney & GB Stone Care Kit</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2997690490706768');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2997690490706768&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     * {
       box-sizing: border-box;
@@ -47,7 +66,6 @@
       opacity: 0.9;
     }
     
-    /* ABOVE THE FOLD FORM SECTION */
     .form-box {
       background: #ffffff;
       padding: 15px 20px;
@@ -100,7 +118,14 @@
       margin-top: 5px;
     }
 
-    /* PRODUCT DETAILS SECTION BELOW FORM */
+    .doctor-text {
+      font-size: 12px;
+      color: #0d5c3a;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 8px;
+    }
+
     .product-box {
       padding: 15px 20px;
       text-align: center;
@@ -141,7 +166,7 @@
       text-align: center;
       font-size: 11px;
       color: #64748b;
-      margin-top: 10px;
+      margin-top: 6px;
     }
     .ads-by {
       font-size: 11px;
@@ -188,9 +213,13 @@
         </div>
 
         <button type="submit" class="submit-btn">
-          <i class="fa-solid fa-paper-plane"></i> SUBMIT & BOOK ORDER
+          SUBMIT NOW
         </button>
       </form>
+
+      <div class="doctor-text">
+        <i class="fa-solid fa-user-doctor"></i> Our Expert doctors will contact you
+      </div>
 
       <div class="footer-note">
         <i class="fa-solid fa-lock"></i> Aapka data 100% safe aur confidential rahega.
@@ -220,7 +249,13 @@
   <script>
     document.getElementById('vedikaForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Aapki details receive ho gayi hain! Vedikacure team jaldi contact karegi.');
+      
+      // Meta Pixel Lead Event Fire
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+
+      alert('Aapki details receive ho gayi hain! Vedikacure expert doctors aapko jaldi contact karenge.');
     });
   </script>
 
