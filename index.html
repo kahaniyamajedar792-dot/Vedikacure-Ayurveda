@@ -18,7 +18,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 15px;
+      padding: 10px;
     }
     .container {
       background: #ffffff;
@@ -31,149 +31,125 @@
     }
     .header {
       background: linear-gradient(135deg, #0d5c3a 0%, #063822 100%);
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       color: white;
     }
-    .brand-logo {
-      width: 90px;
-      height: 90px;
-      background: #fff;
-      border-radius: 50%;
-      padding: 5px;
-      margin: 0 auto 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-    .header h1 {
+    .brand-title {
       font-size: 22px;
       font-weight: 800;
-      margin-bottom: 5px;
       color: #facc15;
+      text-transform: uppercase;
+      margin-bottom: 2px;
     }
     .header p {
-      font-size: 13px;
+      font-size: 12px;
       opacity: 0.9;
     }
-    .product-box {
-      padding: 20px;
-      text-align: center;
+    
+    /* ABOVE THE FOLD FORM SECTION */
+    .form-box {
+      background: #ffffff;
+      padding: 15px 20px;
     }
-    .product-img {
+    .form-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #0d5c3a;
+      background: #e6f4ea;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px dashed #16a34a;
+    }
+    .input-group {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .input-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: #4a5568;
+    }
+    .input-group input, .input-group textarea {
       width: 100%;
-      max-height: 280px;
-      object-fit: contain;
-      border-radius: 12px;
-      margin-bottom: 15px;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
+    .input-group input:focus, .input-group textarea:focus {
+      border-color: #0d5c3a;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(22, 163, 74, 0.3);
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* PRODUCT DETAILS SECTION BELOW FORM */
+    .product-box {
+      padding: 15px 20px;
+      text-align: center;
+      background: #fafafa;
+      border-top: 1px solid #e2e8f0;
     }
     .badge-container {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
     .badge {
       background: #e6f4ea;
       color: #137333;
       font-weight: 700;
-      font-size: 11px;
-      padding: 6px 12px;
+      font-size: 10px;
+      padding: 5px 10px;
       border-radius: 20px;
       border: 1px solid #ceead6;
     }
     .highlights {
-      background: #fafafa;
-      border-left: 4px solid #0d5c3a;
-      padding: 12px 15px;
-      text-align: left;
-      font-size: 13px;
-      margin-bottom: 20px;
-      border-radius: 0 8px 8px 0;
-    }
-    .highlights ul {
-      list-style-type: none;
-    }
-    .highlights li {
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .highlights li i {
-      color: #0d5c3a;
-    }
-    .form-box {
       background: #ffffff;
-      padding: 20px;
-      border-top: 2px dashed #e2e8f0;
-    }
-    .form-title {
-      font-size: 18px;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 15px;
-      color: #0d5c3a;
-    }
-    .input-group {
-      margin-bottom: 12px;
+      border-left: 4px solid #0d5c3a;
+      padding: 10px 12px;
       text-align: left;
-    }
-    .input-group label {
-      display: block;
       font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 5px;
-      color: #4a5568;
-    }
-    .input-group input, .input-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 14px;
-      outline: none;
-      transition: 0.3s;
-    }
-    .input-group input:focus, .input-group textarea:focus {
-      border-color: #0d5c3a;
-      box-shadow: 0 0 0 3px rgba(13, 92, 58, 0.1);
-    }
-    .submit-btn {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
-      color: #ffffff;
-      font-size: 17px;
-      font-weight: 800;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
       margin-top: 10px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
-    .submit-btn:hover {
-      background: #15803d;
-    }
+    .highlights ul { list-style-type: none; }
+    .highlights li { margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+    .highlights li i { color: #0d5c3a; }
+
     .footer-note {
       text-align: center;
       font-size: 11px;
       color: #64748b;
-      margin-top: 15px;
+      margin-top: 10px;
     }
     .ads-by {
-      font-size: 12px;
+      font-size: 11px;
       color: #2563eb;
       font-weight: 700;
       text-align: center;
-      margin-top: 12px;
+      margin-top: 10px;
+      padding-bottom: 5px;
     }
   </style>
 </head>
@@ -182,35 +158,13 @@
   <div class="container">
     <!-- Header Section -->
     <div class="header">
-      <div class="brand-logo">
-        <img src="https://i.ibb.co/1J9vW0j/vedikacure-logo.png" alt="Vedikacure Ayurveda Logo">
-      </div>
-      <h1>VEDIKACURE AYURVEDA</h1>
+      <div class="brand-title">VEDIKACURE AYURVEDA</div>
       <p>Specialized Ayurvedic Care for Kidney & GB Stone</p>
     </div>
 
-    <!-- Product Section -->
-    <div class="product-box">
-      <img src="https://i.ibb.co/Yd4Q49G/vedikacure-products.jpg" alt="Vedikacure Ayurvedic Kit" class="product-img">
-
-      <div class="badge-container">
-        <span class="badge"><i class="fa-solid fa-leaf"></i> 100% Ayurvedic</span>
-        <span class="badge"><i class="fa-solid fa-shield-halved"></i> No Side Effects</span>
-        <span class="badge"><i class="fa-solid fa-truck-fast"></i> Cash On Delivery Available</span>
-      </div>
-
-      <div class="highlights">
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i> <b>Pittashay Biolive Syrup:</b> Gallbladder & Liver Support</li>
-          <li><i class="fa-solid fa-circle-check"></i> <b>GB Stone Capsules:</b> Natural Detox & Cleanse</li>
-          <li><i class="fa-solid fa-circle-check"></i> <b>Olive Kabaz Haran Churan:</b> Acidity & Digestion Reliever</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Data Collection Form -->
+    <!-- Above The Fold Form Section -->
     <div class="form-box">
-      <div class="form-title">Order Now / Konsultation ke liye Details Bharein</div>
+      <div class="form-title">⚡ ORDER NOW (CASH ON DELIVERY)</div>
 
       <form id="vedikaForm">
         <div class="input-group">
@@ -230,18 +184,35 @@
 
         <div class="input-group">
           <label>Pura Pata (Full Address)*</label>
-          <textarea name="address" rows="3" placeholder="Makan no, Gali / Area, Landmark..." required></textarea>
+          <textarea name="address" rows="2" placeholder="Makan no, Gali / Area, Landmark..." required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">
-          <i class="fa-solid fa-paper-plane"></i> BOOK NOW (CASH ON DELIVERY)
+          <i class="fa-solid fa-paper-plane"></i> SUBMIT & BOOK ORDER
         </button>
       </form>
 
       <div class="footer-note">
         <i class="fa-solid fa-lock"></i> Aapka data 100% safe aur confidential rahega.
       </div>
-      
+    </div>
+
+    <!-- Product Highlights Section -->
+    <div class="product-box">
+      <div class="badge-container">
+        <span class="badge"><i class="fa-solid fa-leaf"></i> 100% Ayurvedic</span>
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> No Side Effects</span>
+        <span class="badge"><i class="fa-solid fa-truck-fast"></i> Cash On Delivery</span>
+      </div>
+
+      <div class="highlights">
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <b>Pittashay Biolive Syrup:</b> Gallbladder & Liver Support</li>
+          <li><i class="fa-solid fa-circle-check"></i> <b>GB Stone Capsules:</b> Natural Detox & Cleanse</li>
+          <li><i class="fa-solid fa-circle-check"></i> <b>Olive Kabaz Haran Churan:</b> Acidity & Digestion Reliever</li>
+        </ul>
+      </div>
+
       <div class="ads-by">Ads by Theadsguru Advertising and Marketing Agency</div>
     </div>
   </div>
