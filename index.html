@@ -273,24 +273,37 @@
     const timerElement = document.getElementById('timer');
     function updateTimer() {
       const minutes = Math.floor(timeInSeconds / 60);
-      const seconds = timeInSeconds % 60;
+      const seconds = Math.floor(timeInSeconds % 60);
       timerElement.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
       if (timeInSeconds > 0) { timeInSeconds--; } else { timeInSeconds = 120; }
     }
     setInterval(updateTimer, 1000);
 
-    // Form Submission & Redirection
+    // Form Submission & 24-Hour Block Logic
     const scriptURL = 'https://script.google.com/macros/s/AKfycbywLbQtNfFoq3gwov3mhn90MCC731pmNPzwDgirMxTaYK5WEdLcwHen5H47fdq3cWvW/exec';
     const form = document.getElementById('vedikaForm');
     const btn = document.getElementById('subBtn');
 
     form.addEventListener('submit', e => {
       e.preventDefault();
+
+      const lastSubmitTime = localStorage.getItem('last_lead_submit_time');
+      const currentTime = new Date().getTime();
+      const twentyFourHours = 24 * 60 * 60 * 1000;
+
+      // Check if 24 hours have passed since last submit
+      if (lastSubmitTime && (currentTime - lastSubmitTime < twentyFourHours)) {
+        alert('You have already submitted the form. Our doctor will contact you within 24 hours!');
+        return;
+      }
+
       btn.innerText = 'SUBMITTING...';
       btn.disabled = true;
 
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
+          // Save submit timestamp in browser storage
+          localStorage.setItem('last_lead_submit_time', currentTime);
           window.location.href = 'thankyou.html';
         })
         .catch(error => {
