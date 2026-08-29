@@ -289,10 +289,6 @@
       btn.innerText = 'SUBMITTING...';
       btn.disabled = true;
 
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead');
-      }
-
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
           window.location.href = 'thankyou.html';
